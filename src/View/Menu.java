@@ -40,6 +40,8 @@ public class Menu extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 dispose();
+
+                //Créer une classe ControleurConsole pour faire le lien View - Controller
                 while (!GoalTest.test(level)) {
                     ConsoleOutput.consoleMapDisplay(level);
                     System.out.println("Veuillez saisir votre déplacement: ");
@@ -56,7 +58,13 @@ public class Menu extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 dispose();
+
+                //Créer une classe ControleurGraphique pour faire le lien View - Controller
                 Game game = new Game(lvl);
+                while (!GoalTest.test(level)) {
+
+                }
+                JOptionPane.showMessageDialog(game,"Partie gagnée!");
             }
         });
 

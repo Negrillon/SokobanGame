@@ -39,18 +39,35 @@ public class Game extends JFrame {
                 switch (e.getKeyCode()) {
                     case KeyEvent.VK_Z:
                         System.out.println("z");
-                        lvl = deplacement.deplacementScannerv2(lvl, e);
+                        str = Character.toString(e.getKeyChar());
+                        lvl = deplacement.deplacementScanner(lvl, str);
                         repaint();
                         revalidate();
+                        //displayCharacter();
                         break;
                     case KeyEvent.VK_S:
                         System.out.println("s");
+                        str = Character.toString(e.getKeyChar());
+                        lvl = deplacement.deplacementScanner(lvl, str);
+                        repaint();
+                        revalidate();
+                        //displayCharacter();
                         break;
                     case KeyEvent.VK_Q:
                         System.out.println("q");
+                        str = Character.toString(e.getKeyChar());
+                        lvl = deplacement.deplacementScanner(lvl, str);
+                        repaint();
+                        revalidate();
+                        //displayCharacter();
                         break;
                     case KeyEvent.VK_D:
                         System.out.println("d");
+                        str = Character.toString(e.getKeyChar());
+                        lvl = deplacement.deplacementScanner(lvl, str);
+                        repaint();
+                        revalidate();
+                        //displayCharacter();
                         break;
                 }
             }
@@ -61,4 +78,28 @@ public class Game extends JFrame {
             }
         });
     }
+/*
+    private void displayCharacter(){
+        for (int i = 0; i < 11; i++) {
+            for (int j = 0; j < 19; j++) {
+                switch (str) {
+                    case "z":
+
+                        loadGame.drawImage(image5haut.getImage(), j * 20, i * 20, null);
+                        break;
+                    case "s":
+                        graphics.drawImage(image5bas.getImage(), j * 20, i * 20, null);
+                        break;
+                    case "q":
+                        graphics.drawImage(image5gauche.getImage(), j * 20, i * 20, null);
+                        break;
+                    case "d":
+                        graphics.drawImage(image5droite.getImage(), j * 20, i * 20, null);
+                        break;
+
+                }
+
+            }
+        }
+    }*/
 }
