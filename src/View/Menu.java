@@ -61,9 +61,9 @@ public class Menu extends JFrame {
 
                 //Créer une classe ControleurGraphique pour faire le lien View - Controller
                 Game game = new Game(lvl);
-                while (!GoalTest.test(level)) {
+                //while (!GoalTest.test(level)) {
 
-                }
+                //}
                 JOptionPane.showMessageDialog(game,"Partie gagnée!");
             }
         });

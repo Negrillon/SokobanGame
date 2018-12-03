@@ -11,13 +11,14 @@ import java.awt.event.KeyListener;
 public class Game extends JFrame {
 
     Level lvl;
-    private Deplacement deplacement = new Deplacement(lvl);
+    //private Deplacement deplacement = new Deplacement(lvl);
     private String str;
     private Dimension dimension = java.awt.Toolkit.getDefaultToolkit().getScreenSize();
 
     public Game(Level level) throws HeadlessException {
 
         this.lvl = level;
+        Deplacement deplacement = new Deplacement(lvl);
         LoadGame loadGame = new LoadGame(lvl);
         getContentPane().add(loadGame);
 

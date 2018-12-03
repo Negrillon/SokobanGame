@@ -10,7 +10,7 @@ import java.awt.event.KeyListener;
 public class LoadGame extends JPanel {
 
     Level lvl;
-    String str="z";
+    String str = "z";
     ImageIcon image0 = new ImageIcon("src/Ressources/Images/0.png");
     ImageIcon image1 = new ImageIcon("src/Ressources/Images/1.png");
     ImageIcon image2 = new ImageIcon("src/Ressources/Images/2.png");
@@ -26,6 +26,14 @@ public class LoadGame extends JPanel {
     }
 
     public void paintComponent(Graphics graphics) {
+
+        int[][] cacheMap = lvl.getMapLevel();
+
+        for (int k = 0; k < lvl.goalCoord.size(); k++) {
+            if (cacheMap[lvl.goalCoord.get(k).getX()][lvl.goalCoord.get(k).getY()] == 0)
+                cacheMap[lvl.goalCoord.get(k).getX()][lvl.goalCoord.get(k).getY()] = 4;
+        }
+
         for (int i = 0; i < 11; i++) {
             for (int j = 0; j < 19; j++) {
                 switch (lvl.mapLevel[i][j]) {
@@ -45,6 +53,9 @@ public class LoadGame extends JPanel {
                         graphics.drawImage(image4.getImage(), j * 20, i * 20, null);
                         break;
                     case 5:
+                        graphics.drawImage(image5haut.getImage(), j * 20, i * 20, null);
+                        break;
+                        /*
                         switch (str) {
                             case "z":
                                 graphics.drawImage(image5haut.getImage(), j * 20, i * 20, null);
@@ -59,7 +70,7 @@ public class LoadGame extends JPanel {
                                 graphics.drawImage(image5droite.getImage(), j * 20, i * 20, null);
                                 break;
 
-                        }
+                        }*/
 
                 }
             }
