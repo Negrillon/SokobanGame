@@ -1,5 +1,6 @@
 package View;
 
+import Controller.GoalTest;
 import Model.Deplacement;
 import Model.Level;
 
@@ -37,6 +38,7 @@ public class Game extends JFrame {
 
             @Override
             public void keyPressed(KeyEvent e) {
+
                 switch (e.getKeyCode()) {
                     case KeyEvent.VK_Z:
                         System.out.println("z");
@@ -44,7 +46,6 @@ public class Game extends JFrame {
                         lvl = deplacement.deplacementScanner(lvl, str);
                         repaint();
                         revalidate();
-                        //displayCharacter();
                         break;
                     case KeyEvent.VK_S:
                         System.out.println("s");
@@ -52,7 +53,6 @@ public class Game extends JFrame {
                         lvl = deplacement.deplacementScanner(lvl, str);
                         repaint();
                         revalidate();
-                        //displayCharacter();
                         break;
                     case KeyEvent.VK_Q:
                         System.out.println("q");
@@ -60,7 +60,6 @@ public class Game extends JFrame {
                         lvl = deplacement.deplacementScanner(lvl, str);
                         repaint();
                         revalidate();
-                        //displayCharacter();
                         break;
                     case KeyEvent.VK_D:
                         System.out.println("d");
@@ -68,8 +67,10 @@ public class Game extends JFrame {
                         lvl = deplacement.deplacementScanner(lvl, str);
                         repaint();
                         revalidate();
-                        //displayCharacter();
                         break;
+                }
+                if(GoalTest.test(lvl)){
+                    JOptionPane.showMessageDialog(Game.super.getContentPane(),"Partie Gagnée");
                 }
             }
 

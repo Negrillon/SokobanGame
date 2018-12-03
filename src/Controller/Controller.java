@@ -12,7 +12,7 @@ public class Controller {
 
     public static void main(String[] args) {
         lvl = new Level();
-        lvl.loadLevel("/Users/joris/Document/Projet ING3/jojo-roro/MySokoban FX/src/ressource/map/map_01");
+        lvl.loadLevel("src/Ressources/Map/map_01");
 
         Menu menu = new Menu(lvl);
 
