@@ -20,13 +20,13 @@ public class Menu extends JFrame {
     private MenuBar menuBar = new MenuBar();
 
     private Level level;
-    private Deplacement deplacement;
+    //private Deplacement deplacement;
     private Dimension dimension = java.awt.Toolkit.getDefaultToolkit().getScreenSize();
 
     public Menu(Level lvl) throws HeadlessException {
 
         this.level = lvl;
-        this.deplacement = new Deplacement(lvl);
+        //this.deplacement = new Deplacement(lvl);
 
         //Initialisation du JPanel
         getContentPane().add(jPanel);

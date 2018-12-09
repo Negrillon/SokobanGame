@@ -17,8 +17,6 @@ public class Level {
 
     private static int counter_step = 0;
 
-    private static Time gameTime;
-
     public Coordinates playerCoord;
 
     public static int getCounter_step() {
