@@ -1,4 +1,6 @@
-package Model;
+package Controller;
+
+import Model.Level;
 
 import java.awt.event.KeyEvent;
 import java.util.Scanner;
@@ -69,4 +71,5 @@ public class Deplacement {
         lvl.mapLevel[lvl.playerCoord.getX() + directionX][lvl.playerCoord.getY() + directionY] = 5;
         lvl.mapLevel[lvl.playerCoord.getX()][lvl.playerCoord.getY()] = 0;
     }
+    
 }

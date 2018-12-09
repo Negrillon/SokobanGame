@@ -1,7 +1,8 @@
 package View;
 
 import Controller.GoalTest;
-import Model.Deplacement;
+import Controller.Deplacement;
+import Model.Coordinates;
 import Model.Level;
 
 import javax.swing.*;
@@ -18,8 +19,10 @@ public class Game extends JFrame {
     private Dimension dimension = java.awt.Toolkit.getDefaultToolkit().getScreenSize();
 
     int counter_step;
+    Coordinates save_player;
 
     public Game(Level level) throws HeadlessException {
+
 
 
 
@@ -81,12 +84,17 @@ public class Game extends JFrame {
                     case KeyEvent.VK_D:
                         System.out.println("d");
 
-                        counter_step ++;
+                        save_player = lvl.playerCoord;
 
                         str = Character.toString(e.getKeyChar());
                         lvl = deplacement.deplacementScanner(lvl, str);
                         repaint();
                         revalidate();
+
+                        if(lvl.playerCoord != save_player){
+                            counter_step ++;
+                        }
+
                         break;
                 }
                 if(GoalTest.test(lvl)){

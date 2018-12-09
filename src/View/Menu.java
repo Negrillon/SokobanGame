@@ -1,7 +1,7 @@
 package View;
 
 import Controller.GoalTest;
-import Model.Deplacement;
+import Controller.Deplacement;
 import Model.Level;
 
 import javax.swing.*;

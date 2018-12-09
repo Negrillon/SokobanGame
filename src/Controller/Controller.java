@@ -22,8 +22,8 @@ public class Controller {
         ResourceBundle bundle = ResourceBundle.getBundle("Ressources.domaine.properties.config");
 
 
-        int i=1;
-        do {
+            int i =1;
+
             String level_load = bundle.getString("lvl_" +i);
 
             lvl = new Level();
@@ -32,8 +32,10 @@ public class Controller {
             lvl.loadLevel(level_load);
 
             Menu menu = new Menu(lvl);
-            i++;
-        }while(GoalTest.test(lvl));
+
+            if(GoalTest.test(lvl)){
+                i++;
+            }
 
 
 
