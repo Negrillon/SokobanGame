@@ -1,5 +1,6 @@
 package View;
 
+import Controller.BoutonConsole;
 import Controller.GoalTest;
 import Controller.Deplacement;
 import Model.Level;
@@ -19,13 +20,13 @@ public class Menu extends JFrame {
     private MenuBar menuBar = new MenuBar();
 
     private Level level;
-    private Deplacement deplacement = new Deplacement(level);
-    private GoalTest goalTest = new GoalTest();
+    private Deplacement deplacement;
     private Dimension dimension = java.awt.Toolkit.getDefaultToolkit().getScreenSize();
 
     public Menu(Level lvl) throws HeadlessException {
 
         this.level = lvl;
+        this.deplacement = new Deplacement(lvl);
 
         //Initialisation du JPanel
         getContentPane().add(jPanel);
@@ -41,15 +42,8 @@ public class Menu extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 dispose();
-
-                //Créer une classe ControleurConsole pour faire le lien View - Controller
-                while (!GoalTest.test(level)) {
-                    ConsoleOutput.consoleMapDisplay(level);
-                    System.out.println("Veuillez saisir votre déplacement: ");
-                    Scanner sc = new Scanner(System.in);
-                    String str = sc.nextLine();
-                    level = deplacement.deplacementScanner(level, str);
-                }
+                BoutonConsole boutonConsole = new BoutonConsole();
+                boutonConsole.actionBoutonConsole(lvl);
             }
         });
 
@@ -61,7 +55,7 @@ public class Menu extends JFrame {
                 dispose();
 
                 //Créer une classe ControleurGraphique pour faire le lien View - Controller
-                Game game = new Game(lvl);
+                new Game(lvl);
             }
         });
 

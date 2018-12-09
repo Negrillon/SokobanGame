@@ -72,4 +72,8 @@ public class Deplacement {
         lvl.mapLevel[lvl.playerCoord.getX()][lvl.playerCoord.getY()] = 0;
     }
 
+    public void deplaceToi(){
+
+    }
+
 }
