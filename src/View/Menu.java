@@ -3,12 +3,15 @@ package View;
 import Controller.BoutonConsole;
 import Controller.GoalTest;
 import Controller.Deplacement;
+import Model.Coordinates;
 import Model.Level;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
+import java.io.Console;
 import java.util.Scanner;
 
 public class Menu extends JFrame {
@@ -63,6 +66,42 @@ public class Menu extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 //Code à aller chercher dans le contrôleur pour lancer l'IA
+                new Game(lvl);
+
+                try {
+                    Robot robot = new Robot();
+
+                    robot.setAutoDelay(2000);
+
+                    robot.keyPress(KeyEvent.VK_Z);
+
+                    ConsoleOutput.consoleMapDisplay(lvl);
+
+                    Coordinates save_player = lvl.playerCoord;
+                    while(save_player != lvl.playerCoord){
+                        robot.keyPress(KeyEvent.VK_Z);
+                        robot.setAutoDelay(2000);
+                    }
+                    while(save_player != lvl.playerCoord){
+                        robot.keyPress(KeyEvent.VK_S);
+                        robot.setAutoDelay(2000);
+                    }
+                    while(save_player != lvl.playerCoord){
+                        robot.keyPress(KeyEvent.VK_D);
+                        robot.setAutoDelay(2000);
+                    }
+                    while(save_player != lvl.playerCoord){
+                        robot.keyPress(KeyEvent.VK_Q);
+                        robot.setAutoDelay(2000);
+                    }
+
+                } catch (AWTException e1) {
+                    e1.printStackTrace();
+                }
+
+
+
+
             }
         });
 
