@@ -13,30 +13,26 @@ public class Controller {
     private static Level lvl;
 
 
-
-
-
     public static void main(String[] args) {
 
 
         ResourceBundle bundle = ResourceBundle.getBundle("Ressources.domaine.properties.config");
 
 
-            int i =1;
+        int i = 1;
 
-            String level_load = bundle.getString("lvl_" +i);
+        String level_load = bundle.getString("lvl_" + i);
 
-            lvl = new Level();
+        lvl = new Level();
 
 
-            lvl.loadLevel(level_load);
+        lvl.loadLevel(level_load);
 
-            Menu menu = new Menu(lvl);
+        Menu menu = new Menu(lvl);
 
-            if(GoalTest.test(lvl)){
-                i++;
-            }
-
+        if (GoalTest.test(lvl)) {
+            i++;
+        }
 
 
     }

@@ -23,9 +23,6 @@ public class Game extends JFrame {
 
     public Game(Level level) throws HeadlessException {
 
-
-
-
         this.lvl = level;
         Deplacement deplacement = new Deplacement(lvl);
         LoadGame loadGame = new LoadGame(lvl);
@@ -33,6 +30,7 @@ public class Game extends JFrame {
 
         counter_step = 0;
 
+        //Initialisation de la Frame Game
         setTitle("Game");
         setSize(((int) dimension.getWidth()) / 4, ((int) dimension.getHeight()) / 4);
         setLocationRelativeTo(null);
@@ -40,7 +38,7 @@ public class Game extends JFrame {
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         setVisible(true);
 
-
+        //Ajout de l'évènement KeyPressed afin de faire bouger notre personnage en mode graphique après avoir appuyer sur une touche
         addKeyListener(new KeyListener() {
             @Override
             public void keyTyped(KeyEvent e) {
@@ -54,7 +52,7 @@ public class Game extends JFrame {
                     case KeyEvent.VK_Z:
                         System.out.println("z");
 
-                        counter_step ++;
+                        counter_step++;
 
                         str = Character.toString(e.getKeyChar());
                         lvl = deplacement.deplacementScanner(lvl, str);
@@ -64,7 +62,7 @@ public class Game extends JFrame {
                     case KeyEvent.VK_S:
                         System.out.println("s");
 
-                        counter_step ++;
+                        counter_step++;
 
                         str = Character.toString(e.getKeyChar());
                         lvl = deplacement.deplacementScanner(lvl, str);
@@ -74,7 +72,7 @@ public class Game extends JFrame {
                     case KeyEvent.VK_Q:
                         System.out.println("q");
 
-                        counter_step ++;
+                        counter_step++;
 
                         str = Character.toString(e.getKeyChar());
                         lvl = deplacement.deplacementScanner(lvl, str);
@@ -91,14 +89,14 @@ public class Game extends JFrame {
                         repaint();
                         revalidate();
 
-                        if(lvl.playerCoord != save_player){
-                            counter_step ++;
+                        if (lvl.playerCoord != save_player) {
+                            counter_step++;
                         }
 
                         break;
                 }
-                if(GoalTest.test(lvl)){
-                    JOptionPane.showMessageDialog(Game.super.getContentPane(),"Partie Gagnée en "+ counter_step+" coups");
+                if (GoalTest.test(lvl)) {
+                    JOptionPane.showMessageDialog(Game.super.getContentPane(), "Partie Gagnée en " + counter_step + " coups");
                 }
             }
 

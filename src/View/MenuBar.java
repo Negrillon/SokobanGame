@@ -17,7 +17,7 @@ public class MenuBar extends JMenuBar {
         add(jMenu);
 
         //Raccourci (ex: Ctrl Q) pour aller plus vite sans devoir passer par le menu
-        jMenuItem.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_Q,KeyEvent.VK_ALT));
+        jMenuItem.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_Q, KeyEvent.VK_ALT));
         jMenuItem.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {

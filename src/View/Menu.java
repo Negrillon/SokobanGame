@@ -15,6 +15,7 @@ public class Menu extends JFrame {
     private JPanel jPanel = new JPanel(new GridLayout());
     private JButton jButtonConsole = new JButton("Mode Console");
     private JButton jButtonGraphic = new JButton("Mode Graphique");
+    private JButton jButtonIA = new JButton("Mode IA");
     private MenuBar menuBar = new MenuBar();
 
     private Level level;
@@ -61,6 +62,15 @@ public class Menu extends JFrame {
 
                 //Créer une classe ControleurGraphique pour faire le lien View - Controller
                 Game game = new Game(lvl);
+            }
+        });
+
+        //Initialisation du bouton IA
+        jPanel.add(jButtonIA);
+        jButtonIA.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                //Code à aller chercher dans le contrôleur pour lancer l'IA
             }
         });
 
