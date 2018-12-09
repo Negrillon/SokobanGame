@@ -21,14 +21,18 @@ public class Controller {
 
         ResourceBundle bundle = ResourceBundle.getBundle("Ressources.domaine.properties.config");
 
-        String level_load = bundle.getString("lvl_1");
 
-        lvl = new Level();
+        for(int i =0; i<2;i++){
+            String level_load = bundle.getString("lvl_"+i);
+
+            lvl = new Level();
 
 
-        lvl.loadLevel(level_load);
+            lvl.loadLevel(level_load);
 
-        Menu menu = new Menu(lvl);
+            Menu menu = new Menu(lvl);
+        }
+
 
     }
 }
