@@ -42,8 +42,7 @@ public class Menu extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 dispose();
-                BoutonConsole boutonConsole = new BoutonConsole();
-                boutonConsole.actionBoutonConsole(lvl);
+                new BoutonConsole().actionBoutonConsole(lvl);
             }
         });
 
@@ -54,7 +53,6 @@ public class Menu extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 dispose();
 
-                //Créer une classe ControleurGraphique pour faire le lien View - Controller
                 new Game(lvl);
             }
         });

@@ -1,5 +1,6 @@
 package Controller;
 
+import Model.Coordinates;
 import Model.Level;
 
 import java.awt.event.KeyEvent;
@@ -7,12 +8,12 @@ import java.util.Scanner;
 
 public class Deplacement {
 
-    private Level lvl;
+    private Level level;
 
     private int directionX, directionY;
 
     public Deplacement(Level lvl) {
-        this.lvl = lvl;
+        this.level = lvl;
     }
 
     public Level deplacementScanner(Level lvl, String string) {
@@ -21,59 +22,59 @@ public class Deplacement {
             case "z":
                 directionX = -1;
                 directionY = 0;
-                move(lvl);
+                move(level);
+                Level.setCounter_step(Level.getCounter_step() + 1);
                 break;
             case "q":
                 directionX = 0;
                 directionY = -1;
-                move(lvl);
+                move(level);
+                Level.setCounter_step(Level.getCounter_step() + 1);
                 break;
             case "s":
                 directionX = 1;
                 directionY = 0;
-                move(lvl);
+                move(level);
+                Level.setCounter_step(Level.getCounter_step( ) + 1);
                 break;
             case "d":
                 directionX = 0;
                 directionY = 1;
-                move(lvl);
+                move(level);
+                Level.setCounter_step(Level.getCounter_step() + 1);
                 break;
         }
-        return lvl;
+        return level;
     }
 
     public void move(Level lvl) {
 
-        if ((lvl.getMapLevel()[lvl.playerCoord.getX() + directionX][lvl.playerCoord.getY() + directionY] != 1) && (lvl.getMapLevel()[lvl.playerCoord.getX() + directionX][lvl.playerCoord.getY() + directionY] != 2)) {
+        if ((level.getMapLevel()[level.playerCoord.getX() + directionX][level.playerCoord.getY() + directionY] != 1) && (level.getMapLevel()[level.playerCoord.getX() + directionX][level.playerCoord.getY() + directionY] != 2)) {
 
-            lvl.mapLevel[lvl.playerCoord.getX() + directionX][lvl.playerCoord.getY() + directionY] = 5;
-            lvl.mapLevel[lvl.playerCoord.getX()][lvl.playerCoord.getY()] = 0;
+            level.mapLevel[level.playerCoord.getX() + directionX][level.playerCoord.getY() + directionY] = 5;
+            level.mapLevel[level.playerCoord.getX()][level.playerCoord.getY()] = 0;
 
             if (directionX == 0) {
-                lvl.playerCoord.setY(lvl.playerCoord.getY() + directionY);
+                level.playerCoord.setY(level.playerCoord.getY() + directionY);
             } else {
-                lvl.playerCoord.setX(lvl.playerCoord.getX() + directionX);
+                level.playerCoord.setX(level.playerCoord.getX() + directionX);
             }
 
-        } else if ((lvl.getMapLevel()[lvl.playerCoord.getX() + directionX][lvl.playerCoord.getY() + directionY] == 2) && ((lvl.getMapLevel()[lvl.playerCoord.getX() + directionX + directionX][lvl.playerCoord.getY() + directionY + directionY] == 0) || (lvl.getMapLevel()[lvl.playerCoord.getX() + directionX + directionX][lvl.playerCoord.getY() + directionY + directionY] == 4))) {
-            moveBlock(lvl);
+        } else if ((level.getMapLevel()[level.playerCoord.getX() + directionX][level.playerCoord.getY() + directionY] == 2) && ((level.getMapLevel()[level.playerCoord.getX() + directionX + directionX][level.playerCoord.getY() + directionY + directionY] == 0) || (level.getMapLevel()[level.playerCoord.getX() + directionX + directionX][level.playerCoord.getY() + directionY + directionY] == 4))) {
+            moveBlock(level);
             if (directionX == 0) {
-                lvl.playerCoord.setY(lvl.playerCoord.getY() + directionY);
+                level.playerCoord.setY(level.playerCoord.getY() + directionY);
             } else {
-                lvl.playerCoord.setX(lvl.playerCoord.getX() + directionX);
+                level.playerCoord.setX(level.playerCoord.getX() + directionX);
             }
         }
     }
 
     private void moveBlock(Level lvl) {
 
-        lvl.mapLevel[lvl.playerCoord.getX() + directionX + directionX][lvl.playerCoord.getY() + directionY + directionY] = 2;
-        lvl.mapLevel[lvl.playerCoord.getX() + directionX][lvl.playerCoord.getY() + directionY] = 5;
-        lvl.mapLevel[lvl.playerCoord.getX()][lvl.playerCoord.getY()] = 0;
-    }
-
-    public void deplaceToi(){
-
+        level.mapLevel[level.playerCoord.getX() + directionX + directionX][level.playerCoord.getY() + directionY + directionY] = 2;
+        level.mapLevel[level.playerCoord.getX() + directionX][level.playerCoord.getY() + directionY] = 5;
+        level.mapLevel[level.playerCoord.getX()][level.playerCoord.getY()] = 0;
     }
 
 }

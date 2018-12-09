@@ -33,12 +33,4 @@ public class ConsoleOutput {
             System.out.println();
         }
     }
-
-    public static void consoleGoalCoordDisplay(Level lvl) {
-        System.out.println("Voila les coordoonées des cases Goal: ");
-        for (int i = 0; i < lvl.goalCoord.size(); i++) {
-            System.out.println(lvl.goalCoord.get(i));
-        }
-        System.out.println(lvl.goalCoord.size());
-    }
 }
