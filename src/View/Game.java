@@ -13,22 +13,30 @@ public class Game extends JFrame {
 
     Level lvl;
     //private Deplacement deplacement = new Deplacement(lvl);
+
     private String str;
     private Dimension dimension = java.awt.Toolkit.getDefaultToolkit().getScreenSize();
 
+    int counter_step;
+
     public Game(Level level) throws HeadlessException {
+
+
 
         this.lvl = level;
         Deplacement deplacement = new Deplacement(lvl);
         LoadGame loadGame = new LoadGame(lvl);
         getContentPane().add(loadGame);
 
+        counter_step = 0;
+
         setTitle("Game");
-        setSize(((int) dimension.getWidth()) / 3, ((int) dimension.getHeight()) / 3);
+        setSize(((int) dimension.getWidth()) / 4, ((int) dimension.getHeight()) / 4);
         setLocationRelativeTo(null);
         setResizable(false);
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         setVisible(true);
+
 
         addKeyListener(new KeyListener() {
             @Override
@@ -42,6 +50,9 @@ public class Game extends JFrame {
                 switch (e.getKeyCode()) {
                     case KeyEvent.VK_Z:
                         System.out.println("z");
+
+                        counter_step ++;
+
                         str = Character.toString(e.getKeyChar());
                         lvl = deplacement.deplacementScanner(lvl, str);
                         repaint();
@@ -49,6 +60,9 @@ public class Game extends JFrame {
                         break;
                     case KeyEvent.VK_S:
                         System.out.println("s");
+
+                        counter_step ++;
+
                         str = Character.toString(e.getKeyChar());
                         lvl = deplacement.deplacementScanner(lvl, str);
                         repaint();
@@ -56,6 +70,9 @@ public class Game extends JFrame {
                         break;
                     case KeyEvent.VK_Q:
                         System.out.println("q");
+
+                        counter_step ++;
+
                         str = Character.toString(e.getKeyChar());
                         lvl = deplacement.deplacementScanner(lvl, str);
                         repaint();
@@ -63,6 +80,9 @@ public class Game extends JFrame {
                         break;
                     case KeyEvent.VK_D:
                         System.out.println("d");
+
+                        counter_step ++;
+
                         str = Character.toString(e.getKeyChar());
                         lvl = deplacement.deplacementScanner(lvl, str);
                         repaint();
@@ -70,7 +90,7 @@ public class Game extends JFrame {
                         break;
                 }
                 if(GoalTest.test(lvl)){
-                    JOptionPane.showMessageDialog(Game.super.getContentPane(),"Partie Gagnée");
+                    JOptionPane.showMessageDialog(Game.super.getContentPane(),"Partie Gagnée en "+ counter_step+" coups");
                 }
             }
 
